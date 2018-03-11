@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/firstpStyle.css">	<title></title>
+</head>
+
+<body>
+<!-- webpage content goes here in the body -->
+<button class="button"><a href="/">Home</a></button>
+<button class="button"><a href="/register">Register</a></button>
+<button class="button"><a href="/checklist">Checklist</a></button>
+<button class="button"><a href="/signin">Log in</a></button>
+<button class="button"><a href="/logout">Log Out</a></button>
+<button class="button"><a href="/contactus">Contact Us</a></button>
+<button class="button"><a href="/calendar">Calendar</a></button>
+<button class="button"><a href="/settings">Settings</a></button>
+
+<p> {{ text }} </p>
+
+	<div id="page">
+		<div id="logo" style="text-align: center">
+
+			<h1>Checklist for xxxx</h1>
+		</div>
+		<div id="nav"> </div>
+
+		<div id="content">
+			<form action="/checklistsearched" method="get">
+				<table>
+					<tr>
+						<td><input type="text" name="category" />Search by category</td>
+					</tr>
+					<tr>
+						<td><input type="submit" name="add" value="Search" /></td>
+					</tr>
+				</table>
+			</form>
+			<p>
+				<ul id="myUL">
+					<table>
+						{{#homechecklist}}
+						<tr>
+							<td><a href="/checklist?id={{id}}" /> {{ id }}</td>
+							<td>{{ text }}</td>
+							<td>{{ dateTime }}</td>
+							<td>{{ done }}</td>
+							<td>{{ category }} </td>
+							<td><a href="/checklist/edit?id={{id}}" />Edit</td>
+							<td><a href="/checklist/delete?id={{id}}" />Delete</td>
+						</tr>
+						{{/homechecklist}}
+					</table>
+			</ul>
+			<p>
+				<button class="button"><a href="/checklist/add"> New note </a></button>
+			</br>
+			</p>
+		 </p>
+		</div>
+	</div>
+
+</body>
+</html>

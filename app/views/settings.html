@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/firstpStyle.css">	<title></title>
+  <script src="Scripts/jquery-3.1.1.min.js"></script>
+  <script src="Scripts/jquery.form.min.js"></script>
+</head>
+<body>
+
+<button class="button"><a href="/">Home</a></button>
+<button class="button"><a href="/register">Register</a></button>
+<button class="button"><a href="/checklist">Checklist</a></button>
+<button class="button"><a href="/signin">Log in</a></button>
+<button class="button"><a href="/logout">Log Out</a></button>
+<button class="button"><a href="/contactus">Contact Us</a></button>
+<button class="button"><a href="/calendar">Calendar</a></button>
+<button class="button"><a href="/settings">Settings</a></button>
+
+
+	<div id="page">
+		<div id="logo" style="text-align: center">
+
+			<h1><a href="/" id="logoLink"> Welcome to your online personal calendar</a></h1>
+		</div>
+		<div id="nav">
+		</div>
+		<div id="content">
+			<p>
+        Hi! This is you settings page. Here you can see your information.
+        <ul id="myUL">
+          <table>
+            {{#userinfo}}
+            <tr>
+              <td>{{ name }}</td>
+              <td>{{ userid }}</td>
+              <td>{{ email }}</td>
+              <td>{{ createdAt }} </td>
+              <td>{{ updatedAt }} </td>
+            </tr>
+            {{/userinfo}}
+          </table>
+        </ul>
+			</p>
+
+      <p>
+        Delete your account:
+
+        <p>
+  				<form action="/deleteuser" method="post">
+  					<table>
+  						<tr>
+  							<td><input type="email" name="email" />email</td>
+  						</tr>
+  						<tr>
+  							<td><input type="text" name="password" />password</td>
+  						</tr>
+  						<tr>
+  							<td><input type="submit" name="deleteuser" value="Deleteuser" /></td>
+  						</tr>
+  					</table>
+  				</form>
+  			<!-- </p> -->
+        <p> Upload a profile picture:
+
+          <script type='text/javascript'>
+              function main()
+              {
+                  var inputFileToLoad = document.createElement("input");
+                  inputFileToLoad.type = "file";
+                  inputFileToLoad.id = "inputFileToLoad";
+                  document.body.appendChild(inputFileToLoad);
+
+                  var buttonLoadFile = document.createElement("button");
+                  buttonLoadFile.onclick = loadImageFileAsURL;
+                  buttonLoadFile.textContent = "Load Selected File";
+                  document.body.appendChild(buttonLoadFile);
+              }
+
+              function loadImageFileAsURL()
+              {
+                  var filesSelected = document.getElementById("inputFileToLoad").files;
+                  if (filesSelected.length > 0)
+                  {
+                      var fileToLoad = filesSelected[0];
+
+                      if (fileToLoad.type.match("image.*"))
+                      {
+                          var fileReader = new FileReader();
+                          fileReader.onload = function(fileLoadedEvent)
+                          {
+                              var imageLoaded = document.createElement("img");
+                              imageLoaded.src = fileLoadedEvent.target.result;
+                              document.body.appendChild(imageLoaded);
+                          };
+                          fileReader.readAsDataURL(fileToLoad);
+                      }
+                  }
+              }
+
+              main();
+          </script>
+        </p>
+      </p>
+    </p>
+		</div>
+
+	</div>
+
+</body>
+<br>
+<br>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/firstpStyle.css">	<title></title>
+
+</head>
+
+<body>
+<!-- webpage content goes here in the body -->
+<button class="button"><a href="/">Home</a></button>
+<button class="button"><a href="/register">Register</a></button>
+<button class="button"><a href="/checklist">Checklist</a></button>
+<button class="button"><a href="/signin">Log in</a></button>
+<button class="button"><a href="/logout">Log Out</a></button>
+<button class="button"><a href="/contactus">Contact Us</a></button>
+<button class="button"><a href="/calendar">Calendar</a></button>
+<button class="button"><a href="/settings">Settings</a></button>
+
+
+<p> {{ text }} </p>
+
+	<div id="page">
+		<div id="logo" style="text-align: center">
+
+			<h1>Checklist for xxxx</h1>
+		</div>
+		<div id="nav"> </div>
+
+		<div id="content">
+			<p>
+				<ul id="myUL">
+					<table>
+						{{#homechecklist}}
+						<tr>
+							<td>{{ text }}</td>
+							<td>{{ dateTime }}</td>
+							<td>{{ done }}</td>
+							<td>{{ category }} </td>
+						</tr>
+						{{/homechecklist}}
+					</table>
+			</ul>
+			<p>
+				<button class="button"><a href="/checklist"> Back </a></button>
+			</br>
+			</p>
+		 </p>
+		</div>
+	</div>
+
+</body>
+</html>
