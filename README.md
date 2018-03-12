@@ -14,4 +14,4 @@ Database name: 'BOPO', can be changed in app/config/config.json
 #Extra information
 - Must be logged in to visit the pages
 - Create an account by clicking the register button
-- Routes are specified in routes/auth.js
+- Routes are specified in routes/router.js
